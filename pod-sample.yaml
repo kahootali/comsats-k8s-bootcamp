@@ -1,0 +1,17 @@
+apiVersion: v1
+kind: Pod
+metadata:
+  name: comsats-pod
+  labels:
+    app: comsats-pod
+spec:
+  containers:
+    - name: comsats-pod
+      image: busybox
+      args: [ /bin/sh,-c,'while true; do echo "The ${UNIVERSITY} students are awesome"; sleep 3s; done']
+      resources:
+        limits:
+          memory: 1Gi
+      env:
+      - name: UNIVERSITY
+        value: COMSATS
